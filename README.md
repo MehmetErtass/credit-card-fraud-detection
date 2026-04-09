@@ -1,77 +1,252 @@
-# Credit Card Fraud Detection
+<div align="center">
 
-In this project, I use **machine learning** to detect **credit card fraud** using a dataset that contains anonymized credit card transaction data. The goal is to identify fraudulent transactions based on various features. I built a predictive model using a **Random Forest Classifier** and evaluated its performance with metrics like **ROC AUC**, **precision**, and **recall**.
+# 💳 Credit Card Fraud Detection
 
-## Project Overview
+### Machine Learning-Based Fraud Detection Using Random Forest
 
-This project aims to predict whether a credit card transaction is fraudulent. The dataset is sourced from **Kaggle’s Credit Card Fraud Detection** challenge, which consists of over 280,000 transactions.
+[![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
+[![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-1.x-F7931E?style=flat-square&logo=scikitlearn&logoColor=white)](https://scikit-learn.org/)
+[![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat-square&logo=pandas&logoColor=white)](https://pandas.pydata.org/)
+[![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat-square&logo=numpy&logoColor=white)](https://numpy.org/)
+[![Seaborn](https://img.shields.io/badge/Seaborn-4C72B0?style=flat-square&logo=python&logoColor=white)](https://seaborn.pydata.org/)
+[![Matplotlib](https://img.shields.io/badge/Matplotlib-11557C?style=flat-square&logo=python&logoColor=white)](https://matplotlib.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-22c55e?style=flat-square)](LICENSE)
 
-### Key Steps:
+[Overview](#-overview) ·
+[Features](#-features) ·
+[Tech Stack](#-tech-stack) ·
+[Getting Started](#-getting-started) ·
+[Usage](#-usage) ·
+[Model Performance](#-model-performance) ·
+[Project Structure](#-project-structure) ·
+[Future Improvements](#-future-improvements) ·
+[License](#-license)
 
-1. **Data Preprocessing**: 
-    - Explored the dataset to understand basic features, check for missing values, and generate statistical summaries.
-    - Handled any missing data and performed **feature engineering**. For instance, I used log transformation on the transaction amount to handle outliers more effectively.
+</div>
 
-2. **Model Building**:
-    - Split the dataset into training and testing sets.
-    - Trained a **Random Forest Classifier** on the training data.
-    - Evaluated the model’s performance using metrics like **ROC AUC**, **accuracy**, **precision**, and **recall**.
+---
 
-3. **Model Evaluation**:
-    - Visualized the model’s performance with an **ROC curve**.
-    - Analyzed the false positives and true positives to assess how robust the model is.
+## 📌 Overview
 
-## Dataset
+**Credit Card Fraud Detection** is a machine learning project designed to identify fraudulent credit card transactions using a highly imbalanced real-world dataset. The project includes **exploratory data analysis (EDA)**, **feature engineering**, **data visualization**, and **model development** using a **Random Forest Classifier**.
 
-The dataset used is **Credit Card Fraud Detection**, available on Kaggle, and it includes the following features:
-- `Time`: Time since the first transaction.
-- `V1-V28`: Anonymized features derived from PCA (Principal Component Analysis).
-- `Amount`: The transaction amount.
-- `Class`: Label (1 for fraud, 0 for non-fraud).
+The dataset contains anonymized features (`V1–V28`) generated through **Principal Component Analysis (PCA)**, along with `Time`, `Amount`, and the target variable `Class`, where:
 
-## Tools and Libraries Used
+- `0` → Legitimate transaction
+- `1` → Fraudulent transaction
 
-- **Pandas**: For data manipulation and analysis.
-- **NumPy**: For numerical computing.
-- **Matplotlib & Seaborn**: For creating visualizations.
-- **Scikit-Learn**: For building the machine learning model and evaluating performance.
+> 🎯 **Objective:** Build a robust and reliable model capable of detecting fraudulent transactions while minimizing false positives.
 
-## How to Run the Project
+---
 
-If you'd like to run this on your local machine, here are the steps:
+## ✨ Features
 
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/MehmetErtass/credit-card-fraud-detection.git
-    ```
+| Module | Description |
+|--------|-------------|
+| **Data Exploration** | Inspection using `info()`, `describe()`, and missing value analysis |
+| **Data Visualization** | Histogram and boxplots for transaction amount and class distribution |
+| **Feature Engineering** | Log transformation of the `Amount` variable |
+| **Modeling** | Fraud detection using `RandomForestClassifier` |
+| **Evaluation** | Precision, Recall, F1-Score, Accuracy, and ROC-AUC metrics |
+| **ROC Curve** | Visualization of model performance |
+| **Imbalanced Data Insight** | Understanding the impact of class imbalance |
 
-2. Install the necessary dependencies:
-    ```bash
-    pip install -r requirements.txt
-    ```
+---
 
-3. Download the dataset (`creditcard.csv`) and place it in the project folder.
+## 🛠 Tech Stack
 
-4. Run the Python script to train the model and analyze the data:
-    ```bash
-    python fraud_detection.py
-    ```
+| Category | Technologies |
+|---------|-------------|
+| **Programming Language** | Python 3.9+ |
+| **Data Processing** | Pandas, NumPy |
+| **Visualization** | Matplotlib, Seaborn |
+| **Machine Learning** | Scikit-learn |
+| **Development Environment** | Jupyter Notebook |
 
-## Results
+---
 
-- **Model Performance**: The Random Forest Classifier achieved an **ROC AUC score** of X.XX, showing its ability to differentiate between fraudulent and non-fraudulent transactions effectively.
-- **Visualizations**: 
-    - Distribution of transaction amounts.
-    - Boxplot relating the transaction amount to whether the transaction was fraudulent or not.
-    - ROC curve for evaluating the model’s performance.
+## 🚀 Getting Started
 
-## Future Improvements
+### 📌 Prerequisites
 
-1. **Hyperparameter Tuning**: I plan to fine-tune the model using tools like **GridSearchCV** or **RandomizedSearchCV** to improve its performance.
-2. **Feature Engineering**: I’ll explore additional features and apply more advanced feature selection techniques to enhance accuracy.
-3. **Trying Other Models**: I’m also considering experimenting with other classification algorithms, such as **XGBoost**, **LightGBM**, and **Logistic Regression**, to see if they can provide better results.
+- Python 3.9 or higher
+- pip package manager
+- Jupyter Notebook or any Python IDE
 
-## Acknowledgements
+### 📥 Installation
 
-- Dataset: Kaggle’s **Credit Card Fraud Detection** dataset.
-- Libraries: Scikit-Learn, Pandas, NumPy, Matplotlib, Seaborn.
+```bash
+# 1. Clone the repository
+git clone https://github.com/mehmetertass/credit-card-fraud-detection.git
+cd credit-card-fraud-detection
+
+# 2. Create and activate a virtual environment
+python -m venv venv
+source venv/bin/activate        # macOS / Linux
+# venv\Scripts\activate         # Windows
+
+# 3. Install dependencies
+pip install -r requirements.txt
+```
+
+---
+
+## 📊 Dataset
+
+This project uses the Credit Card Fraud Detection dataset available on Kaggle:
+
+🔗 [https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud)
+
+After downloading, place the `creditcard.csv` file in the root directory of the project.
+
+---
+
+## 📖 Usage
+
+**1️⃣ Load the Dataset**
+
+```python
+import pandas as pd
+data = pd.read_csv('creditcard.csv')
+```
+
+**2️⃣ Exploratory Data Analysis**
+
+```python
+print(data.info())
+print(data.describe())
+print(data.isnull().sum())
+```
+
+**3️⃣ Data Visualization**
+
+```python
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+sns.histplot(data['Amount'], kde=True)
+plt.title('Transaction Amount Distribution')
+plt.show()
+
+sns.boxplot(x='Class', y='Amount', data=data)
+plt.title('Class vs Transaction Amount')
+plt.show()
+```
+
+**4️⃣ Feature Engineering**
+
+```python
+import numpy as np
+data['log_amount'] = np.log1p(data['Amount'])
+```
+
+**5️⃣ Train-Test Split**
+
+```python
+from sklearn.model_selection import train_test_split
+
+X = data.drop(columns=['Class', 'Time'])
+y = data['Class']
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.3, random_state=42
+)
+```
+
+**6️⃣ Model Training**
+
+```python
+from sklearn.ensemble import RandomForestClassifier
+
+model = RandomForestClassifier(n_estimators=100, random_state=42)
+model.fit(X_train, y_train)
+```
+
+**7️⃣ Model Evaluation**
+
+```python
+from sklearn.metrics import classification_report, roc_auc_score
+
+y_pred = model.predict(X_test)
+print(classification_report(y_test, y_pred))
+
+# Use predict_proba for a proper ROC-AUC score
+print(f"ROC AUC: {roc_auc_score(y_test, model.predict_proba(X_test)[:, 1])}")
+```
+
+**8️⃣ ROC Curve Visualization**
+
+```python
+from sklearn.metrics import roc_curve
+
+fpr, tpr, _ = roc_curve(y_test, model.predict_proba(X_test)[:, 1])
+
+plt.plot(fpr, tpr, label='ROC Curve')
+plt.plot([0, 1], [0, 1], linestyle='--')
+plt.xlabel('False Positive Rate')
+plt.ylabel('True Positive Rate')
+plt.title('Receiver Operating Characteristic Curve')
+plt.legend()
+plt.show()
+```
+
+---
+
+## 📊 Model Performance
+
+The Random Forest Classifier demonstrates strong performance despite the highly imbalanced nature of the dataset.
+
+| Metric | Score |
+|--------|-------|
+| Accuracy | ~1.00 |
+| Precision (Fraud) | 0.93 |
+| Recall (Fraud) | 0.80 |
+| F1-Score (Fraud) | 0.86 |
+| ROC-AUC | 0.90 |
+
+> ⚠️ **Note:** Due to the severe class imbalance (~0.17% fraud), Recall and ROC-AUC are more informative metrics than overall accuracy. Results were obtained without SMOTE or resampling — applying these techniques may further improve Recall.
+
+---
+
+## 📁 Project Structure
+
+```
+credit-card-fraud-detection/
+│
+├── fraud_detection.ipynb   # Jupyter Notebook containing the full workflow
+├── creditcard.csv          # Dataset (not included due to size)
+├── requirements.txt        # Project dependencies
+└── README.md               # Project documentation
+```
+
+---
+
+## 🔮 Future Improvements
+
+- 🔄 Handle class imbalance using SMOTE or undersampling
+- ⚙️ Hyperparameter tuning with GridSearchCV or RandomizedSearchCV
+- 🤖 Experiment with advanced models such as XGBoost and LightGBM
+- 🌐 Deploy the model using Flask, FastAPI, or Streamlit
+- 📈 Implement real-time fraud detection pipelines
+- 📊 Add feature importance visualization
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+---
+
+## 🙋‍♂️ Author
+
+<div align="center">
+
+**Mehmet Ertaş**
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/mehmetertas)
+[![Portfolio](https://img.shields.io/badge/Portfolio-000000?style=flat-square&logo=github&logoColor=white)](https://mehmetertass.github.io)
+
+Made with ❤️ by Mehmet Ertaş
+
+</div>
